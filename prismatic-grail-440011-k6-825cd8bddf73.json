@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "prismatic-grail-440011-k6",
+  "private_key_id": "825cd8bddf73a01661b4bbb5bc50b0c2c6cb3841",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDcVdktqQKwBbuu\nrBpLgHqPyFn8sS48CwKbpUp1RRC9+nBk4iiuDNfSDwgxriO6NTJ8g0K7Djk6+dJO\nLYWinYK5mt5OyRw6LhZCw3h4h4hlpGbmV2Q9jDzNRoFTKcsjMgnB5+Ozu6b6b5l8\nz3RJZRQ1gJ26y7LE9jFyCiPGLNhK//j4ySEby5S6WP65RYg4VhkdYvDG628wl9Bm\nENptNGtipITmc1P/KBCShC6tNhN9CIf2MoKaRSZmnOaiEl79qjubfISaE38Z9mcF\nn2ZJXhlm4C1RaZV7LCJ4shPsCMWKW+rt49cxQCJvrhiTgQC31XqJsKmL74Z6/cep\nkGVXz9rVAgMBAAECggEAIv8FDm+Nxw+MuThfZNFJ+5Rtq+kogs5CN8k6g63YnumB\no0RuBFcd4HYVbcP5q2sk/bSLi30S3KnZcXlhhGv9hiVxsenXhet+talTyoZxxP3R\nKjzZ5by525DwnEOYdEVPr3DO2zlZqDrEPO1mdvyLB9nJ3mWERix5u2HzlK0tcvEx\nr4+jzCHgg4chqXyXyXDzn4xEMkI7r0Tvn8oisZr3p5r6izMeE33e24MqWIMw3O7I\noluB8Hjo0nmO1sflG7wIMUvoptmUMg1h6ItQoH2zmW05+DKAze6bP6rO76Xo/9DB\nEs7uqgcZUte+GssyI2jgT7DNwRGWcxgkGc00u1KDcQKBgQD8mARvftfT2PYHKqYQ\nx24PlSva6B+8GyGeS2D3/EyjVLoxpXtngvQl6+KBzCTuQ4cJXxPkTWuSzNYGVIJO\n+FQFLX4Y60k0XVI0nTl6/kNWzmyxvg1AF/uK6H6eLqb90VLQzIgTmrUMFqkUILQh\nJTEQqGgp7txp95Xm0+VaHS41+wKBgQDfTniZ+fB1XFykUXHjcAkhSxhmNkFfKtOD\neU/HQ3tPc3hbKx8cS8WMtAaxFZfiCFxWIX6XL13CJXlTZC/bNBoCjeWl80TKRT43\ntJMTkMs9UjmfDajorJ+gXGf1wucgJpSKavEGjn+5iLRT+FOOYjOFT+z50AxV4YSf\nf/PxFN/pbwKBgQDFvJt8TOfYR7gR1Ck8aWKXgEdcjuqI7xRaPtgiSbgVBHbd9pWs\naq+GICqpQY6HlwVXKL8BsjnMKd5CBlYcS/o6M2rLRyV/gK6h0ZL13aYJhn9AhW8K\nBbw8+dRlMFA50mvqWLMN5cZlODgUMaXRbLQEPlGMwhh6O/91O9wHt2A9kQKBgQCT\nvRf/TyQukVfdguDlh3cS5tsSrKydaPkdT8JfZB8OFqg3MRVZJCxkBaszt8SPz9Y/\nSdO19KmETESzzmH3FcZrkDOyknsdk6gxNK/lzvMX8/GZcHEi1yqY7un85+EAHWZD\nGbOzEc4hEvezYmTtm7zYY2O2d1Xh791NpVrgUl490wKBgGrGkGLLPrlssOEbn4e4\nj54Tyv0BOuDwRBTHagsXysqSrFpex8N8/9MARmG+fQtvqdIplC1Q73BnvIWZKJ3G\nHPGc01F6D8NdD01YhhBau0MvF3UUqzErKQ0fHnCwFQL7p/oIg4GTMXxlGX0teFr0\nBoa4kVSv8LF65njptjkDlYSd\n-----END PRIVATE KEY-----\n",
+  "client_email": "neural@prismatic-grail-440011-k6.iam.gserviceaccount.com",
+  "client_id": "117532358074638045994",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/neural%40prismatic-grail-440011-k6.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
