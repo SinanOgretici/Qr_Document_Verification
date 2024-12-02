@@ -1,0 +1,21 @@
+2024-12-01 23:29:12.862310 - Durum: Başarılı
+Detaylar: Belge doğrulama başarılı
+
+2024-12-01 23:30:08.433905 - Durum: Başarısız
+Detaylar: Doğrulama sırasında hata oluştu
+
+2024-12-01 23:30:51.902282 - Durum: Başarılı
+Detaylar: Belge doğrulama başarılı
+
+2024-12-01 23:33:15.540382 - Durum: Başarılı
+Detaylar: Belge doğrulama başarılı
+
+2024-12-01 23:47:56.255919 - Durum: Başarılı
+Detaylar: Belge doğrulama başarılı
+
+2024-12-01 23:48:24.699408 - Durum: Başarısız
+Detaylar: Doğrulama sırasında hata oluştu
+
+2024-12-01 23:48:49.236614 - Durum: Başarılı
+Detaylar: Belge doğrulama başarılı
+

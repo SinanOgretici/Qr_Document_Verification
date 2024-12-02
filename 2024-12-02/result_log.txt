@@ -1,0 +1,83 @@
+2024-12-02 00:03:35.055574 - Durum: Başarılı
+Detaylar: Belge doğrulama başarılı
+
+2024-12-02 00:04:23.158723 - Durum: Başarılı
+Detaylar: Belge doğrulama başarılı
+
+2024-12-02 00:04:52.386449 - Durum: Başarılı
+Detaylar: Belge doğrulama başarılı
+
+2024-12-02 00:05:27.131249 - Durum: Başarısız
+Detaylar: Doğrulama sırasında hata oluştu
+
+2024-12-02 00:05:56.765514 - Durum: Başarısız
+Detaylar: Doğrulama sırasında hata oluştu
+
+2024-12-02 00:06:54.636269 - Durum: Başarısız
+Detaylar: Doğrulama sırasında hata oluştu
+
+2024-12-02 00:08:54.367065 - Durum: Başarısız
+Detaylar: Doğrulama sırasında hata oluştu
+
+2024-12-02 00:12:21.109012 - Durum: Başarılı
+Detaylar: Belge doğrulama başarılı
+
+2024-12-02 00:13:28.886767 - Durum: Başarısız
+Detaylar: Doğrulama sırasında hata oluştu
+
+2024-12-02 00:14:06.428228 - Durum: Başarısız
+Detaylar: Doğrulama sırasında hata oluştu
+
+2024-12-02 00:14:37.347628 - Durum: Başarısız
+Detaylar: Hata: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=131.0.6778.86)
+Stacktrace:
+	GetHandleVerifier [0x00007FF60897E1F5+2972373]
+	(No symbol) [0x00007FF6086155F0]
+	(No symbol) [0x00007FF6084B57FA]
+	(No symbol) [0x00007FF60848FA85]
+	(No symbol) [0x00007FF608532B17]
+	(No symbol) [0x00007FF60854B1D1]
+	(No symbol) [0x00007FF60852B823]
+	(No symbol) [0x00007FF6084F75E8]
+	(No symbol) [0x00007FF6084F8751]
+	GetHandleVerifier [0x00007FF6089A47BD+3129501]
+	GetHandleVerifier [0x00007FF6089F4D00+3458528]
+	GetHandleVerifier [0x00007FF6089EB05D+3418429]
+	GetHandleVerifier [0x00007FF60877687B+844123]
+	(No symbol) [0x00007FF608620AFF]
+	(No symbol) [0x00007FF60861C6D4]
+	(No symbol) [0x00007FF60861C86D]
+	(No symbol) [0x00007FF60860BD79]
+	BaseThreadInitThunk [0x00007FFD040F259D+29]
+	RtlUserThreadStart [0x00007FFD0622AF38+40]
+
+
+2024-12-02 00:14:58.403377 - Durum: Başarısız
+Detaylar: Doğrulama sırasında hata oluştu
+
+2024-12-02 00:15:19.348200 - Durum: Başarısız
+Detaylar: Doğrulama sırasında hata oluştu
+
+2024-12-02 00:15:47.469722 - Durum: Başarısız
+Detaylar: Doğrulama sırasında hata oluştu
+
+2024-12-02 00:29:16.832416 - Durum: Başarısız
+Detaylar: Doğrulama sırasında hata oluştu
+
+2024-12-02 00:43:53.288128 - Durum: Başarısız
+Detaylar: Logo elementi bulunamadı
+
+2024-12-02 00:46:40.021382 - Durum: Başarısız
+Detaylar: Logo elementi bulunamadı
+
+2024-12-02 00:52:29.191945 - Durum: Başarısız
+Detaylar: Doğrulama sırasında hata oluştu
+
+2024-12-02 00:52:56.169068 - Durum: Başarılı
+Detaylar: Belge doğrulama başarılı
+
+2024-12-02 10:35:33.533407 - Durum: Başarılı
+Detaylar: Belge doğrulama başarılı
+

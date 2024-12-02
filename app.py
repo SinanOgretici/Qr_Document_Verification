@@ -1,10 +1,7 @@
-import json
 import streamlit as st
 import pytesseract
 from PIL import Image
-import tempfile
 import re
-import time
 from pdf2image import convert_from_path
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
@@ -12,21 +9,39 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.options import Options
-import requests
+import tempfile
 import os
-import cv2
-import numpy as np
+import base64
+import io
+import time
+from google.cloud import vision
+from datetime import datetime
+import json
 
-# JSON kayıt fonksiyonu
-def save_to_json(log, filename="log.json"):
-    try:
-        with open(filename, "w", encoding="utf-8") as file:
-            json.dump(log, file, ensure_ascii=False, indent=4)
-    except Exception as e:
-        st.error(f"JSON kaydetme hatası: {e}")
+# Google Vision API istemcisini başlat
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "key.json"
+vision_client = vision.ImageAnnotatorClient()
 
-# JSON kayıtları için başlangıç
-log_data = {"işlemler": []}
+# Belirtilen dosya yolu
+base_folder = r"C:\Users\sinan\OneDrive\Belgeler\Qr_Document_Verification"
+if not os.path.exists(base_folder):
+    os.makedirs(base_folder)
+
+# Klasör ismini sadece tarihe göre oluşturma
+current_date = datetime.now().strftime('%Y-%m-%d')
+unique_folder = os.path.join(base_folder, current_date)
+
+# Yeni tarih ise klasör oluştur
+if not os.path.exists(unique_folder):
+    os.makedirs(unique_folder)
+
+captcha_folder = os.path.join(unique_folder, "captcha")
+if not os.path.exists(captcha_folder):
+    os.makedirs(captcha_folder)
+
+captcha_path = os.path.join(captcha_folder, "captcha.png")
+info_file_path = os.path.join(unique_folder, "pdf_info.json")
+result_file_path = os.path.join(unique_folder, "result_log.txt")
 
 # Başlık
 st.title("Belge Doğrulama Sistemi")
@@ -48,28 +63,20 @@ if uploaded_file is not None:
         return text
 
     extracted_info = extract_pdf_info(uploaded_file)
-    log_data["işlemler"].append({"aşama": "PDF'ten metin çıkarma", "çıkarılan_metin": extracted_info})
-    save_to_json(log_data)
-
     st.subheader("PDF'ten Çıkarılan Bilgiler")
     st.text(extracted_info)
 
+    # PDF'den TC Kimlik Numarası ve Kontrol Kodu Çekme
     def extract_tc_kimlik_and_kontrol_kodu(text):
         tc_kimlik = re.search(r"\b\d{11}\b", text)
         tc_kimlik = tc_kimlik.group(0) if tc_kimlik else None
 
         kontrol_kodu = re.search(r"Sonuç Belgesi Kontrol Kodu:\s*([A-Za-z0-9]+)", text)
         kontrol_kodu = kontrol_kodu.group(1) if kontrol_kodu else None
-        
+
         return tc_kimlik, kontrol_kodu
 
     tc_numarasi, kontrol_kodu = extract_tc_kimlik_and_kontrol_kodu(extracted_info)
-    log_data["işlemler"].append({
-        "aşama": "T.C. Kimlik ve Kontrol Kodu çıkarma",
-        "tc_numarasi": tc_numarasi,
-        "kontrol_kodu": kontrol_kodu
-    })
-    save_to_json(log_data)
 
     st.write(f"T.C. Kimlik Numarası: {tc_numarasi}")
     st.write(f"Sonuç Belgesi Kontrol Kodu: {kontrol_kodu}")
@@ -77,70 +84,144 @@ if uploaded_file is not None:
     if not tc_numarasi or not kontrol_kodu:
         st.error("T.C. Kimlik Numarası veya Sonuç Belgesi Kontrol Kodu bulunamadı.")
 
-    # CAPTCHA çözüm fonksiyonu
-    def solve_captcha(driver):
+    # JSON dosyasına yeni bilgi eklemek
+    def append_pdf_info(tc_numarasi, kontrol_kodu):
         try:
+            # JSON dosyasını kontrol et ve yoksa oluştur
+            if not os.path.exists(info_file_path):
+                with open(info_file_path, "w", encoding="utf-8") as json_file:
+                    json.dump([], json_file, ensure_ascii=False, indent=4)
+
+            # JSON dosyasını açıp liste olarak al
+            with open(info_file_path, "r", encoding="utf-8") as json_file:
+                try:
+                    data = json.load(json_file)
+                    if not isinstance(data, list):  # Liste değilse temizle
+                        data = []
+                except json.JSONDecodeError:  # JSON bozuksa temizle
+                    data = []
+
+            # Yeni girişi ekle
+            new_entry = {
+                "timestamp": datetime.now().isoformat(),
+                "tc_numarasi": tc_numarasi,
+                "kontrol_kodu": kontrol_kodu
+            }
+            data.append(new_entry)  # Listeye yeni girişi ekle
+
+            # JSON dosyasına yaz
+            with open(info_file_path, "w", encoding="utf-8") as json_file:
+                json.dump(data, json_file, ensure_ascii=False, indent=4)
+        except Exception as e:
+            st.error(f"JSON güncellenirken hata: {e}")
+
+    # Sonuçları txt dosyasına eklemek
+    def append_result_log(status, details):
+        try:
+            with open(result_file_path, "a", encoding="utf-8") as txt_file:
+                txt_file.write(f"{datetime.now()} - Durum: {status}\nDetaylar: {details}\n\n")
+        except Exception as e:
+            st.error(f"TXT dosyasına yazılırken hata: {e}")
+
+    # CAPTCHA kaydetme fonksiyonu (benzersiz ad)
+    def save_captcha_image(driver, element):
+        try:
+            captcha_base64 = element.screenshot_as_base64  # CAPTCHA'yı base64 formatında al
+            captcha_image = Image.open(io.BytesIO(base64.b64decode(captcha_base64)))  # Görüntüye çevir
+            unique_filename = f"captcha_{datetime.now().strftime('%Y%m%d%H%M%S')}.png"
+            captcha_image.save(os.path.join(captcha_folder, unique_filename))
+            return unique_filename
+        except Exception as e:
+            st.error(f"CAPTCHA kaydedilirken hata oluştu: {e}")
+            return None
+
+    # Google Vision API ile CAPTCHA çözme
+    def solve_captcha_with_vision(captcha_path):
+        try:
+            with io.open(captcha_path, "rb") as image_file:
+                content = image_file.read()
+
+            image = vision.Image(content=content)
+            response = vision_client.text_detection(image=image)
+            texts = response.text_annotations
+
+            if texts:
+                captcha_text = texts[0].description.strip().replace(" ", "")
+                return captcha_text if len(captcha_text) == 5 else None
+            else:
+                st.error("Google Vision OCR sonucu boş döndü.")
+                return None
+        except Exception as e:
+            st.error(f"Google Vision CAPTCHA çözümünde hata oluştu: {e}")
+            return None
+
+    # Belge doğrulama fonksiyonu
+    def verify_document(tc_numarasi, kontrol_kodu):
+        chrome_options = Options()
+        chrome_options.add_argument("--no-sandbox")
+        chrome_options.add_argument("--disable-dev-shm-usage")
+
+        driver_service = Service("C:/ChromeDriver/chromedriver.exe")
+        driver = webdriver.Chrome(service=driver_service, options=chrome_options)
+        driver.get("https://sonuc.osym.gov.tr/BelgeKontrol.aspx")
+
+        try:
+            tc_input = WebDriverWait(driver, 60).until(
+                EC.visibility_of_element_located((By.ID, "adayNo"))
+            )
+            tc_input.clear()
+            tc_input.send_keys(tc_numarasi)
+
+            belge_kodu_input = WebDriverWait(driver, 60).until(
+                EC.visibility_of_element_located((By.ID, "belgeKodu"))
+            )
+            belge_kodu_input.clear()
+            belge_kodu_input.send_keys(kontrol_kodu)
+
             captcha_img_element = WebDriverWait(driver, 60).until(
                 EC.presence_of_element_located((By.XPATH, "//div[@class='captchaImage']/img"))
             )
-            captcha_url = captcha_img_element.get_attribute("src")
-            captcha_image_response = requests.get(captcha_url, stream=True)
-            if captcha_image_response.status_code != 200:
-                st.warning(f"CAPTCHA resmi indirilemedi. Durum Kodu: {captcha_image_response.status_code}")
-                return None
-            with tempfile.NamedTemporaryFile(delete=False, suffix=".png") as captcha_file:
-                captcha_file.write(captcha_image_response.content)
-                captcha_path = captcha_file.name
-            contours, img = preprocess_image(captcha_path)
-            characters = []
-            for cnt in contours:
-                x, y, w, h = cv2.boundingRect(cnt)
-                if w > 5 and h > 15:
-                    roi = img[y:y+h, x:x+w]
-                    text = pytesseract.image_to_string(roi, config='--psm 8 --oem 3')
-                    characters.append(re.sub(r'\W+', '', text))
-            os.remove(captcha_path)
-            captcha_text = ''.join(characters)
-            log_data["işlemler"].append({"aşama": "CAPTCHA çözümü", "captcha_metni": captcha_text})
-            save_to_json(log_data)
-            return captcha_text.strip() if captcha_text else None
+            captcha_filename = save_captcha_image(driver, captcha_img_element)
+            captcha_code = solve_captcha_with_vision(os.path.join(captcha_folder, captcha_filename))
+
+            if not captcha_code:
+                st.error("CAPTCHA çözümü başarısız oldu.")
+                driver.quit()
+                return {"status": "Başarısız", "details": "CAPTCHA çözülemedi"}
+
+            captcha_input = WebDriverWait(driver, 60).until(
+                EC.visibility_of_element_located((By.ID, "captchaKod"))
+            )
+            captcha_input.clear()
+            captcha_input.send_keys(captcha_code)
+
+            submit_button = WebDriverWait(driver, 60).until(
+                EC.element_to_be_clickable((By.ID, "btng"))
+            )
+            time.sleep(10)  # Butona basmadan önce bekle
+            submit_button.click()
+
+            time.sleep(5)
+            avatar_element = driver.find_elements(By.CLASS_NAME, "avatar")
+            driver.quit()
+
+            if avatar_element:
+                return {"status": "Başarılı", "details": "Belge doğrulama başarılı"}
+            else:
+                return {"status": "Başarısız", "details": "Doğrulama sırasında hata oluştu"}
         except Exception as e:
-            st.error(f"CAPTCHA çözümünde hata: {e}")
-            return None
+            driver.quit()
+            return {"status": "Başarısız", "details": f"Hata: {str(e)}"}
 
     # Belge doğrulama düğmesi
     if st.button("Belgeyi Doğrula"):
         if tc_numarasi and kontrol_kodu:
-            try:
-                chrome_options = Options()
-                chrome_options.add_argument("--no-sandbox")
-                chrome_options.add_argument("--disable-dev-shm-usage")
-                driver_service = Service('C:/ChromeDriver/chromedriver.exe')
-                driver = webdriver.Chrome(service=driver_service, options=chrome_options)
-                driver.get("https://sonuc.osym.gov.tr/BelgeKontrol.aspx")
-                tc_input = WebDriverWait(driver, 60).until(EC.visibility_of_element_located((By.ID, "adayNo")))
-                tc_input.send_keys(tc_numarasi)
-                belge_kodu_input = WebDriverWait(driver, 60).until(EC.visibility_of_element_located((By.ID, "belgeKodu")))
-                belge_kodu_input.send_keys(kontrol_kodu)
-                captcha_code = solve_captcha(driver)
-                if captcha_code:
-                    captcha_input = WebDriverWait(driver, 60).until(EC.visibility_of_element_located((By.ID, "captchaKod")))
-                    captcha_input.send_keys(captcha_code)
-                    submit_button = WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.ID, "btng")))
-                    submit_button.click()
-                    time.sleep(15)
-                    result_element = WebDriverWait(driver, 60).until(
-                        EC.visibility_of_element_located((By.ID, "ctl00_ContentPlaceHolder1_lblSonuc"))
-                    )
-                    result_text = result_element.text
-                    log_data["işlemler"].append({"aşama": "Belge doğrulama", "sonuç": result_text})
-                    save_to_json(log_data)
-                    st.write(result_text)
-                else:
-                    st.error("CAPTCHA çözümü başarısız oldu.")
-            except Exception as e:
-                st.error(f"Belge doğrulamada hata: {e}")
-            finally:
-                driver.quit()
+            result = verify_document(tc_numarasi, kontrol_kodu)
+            append_pdf_info(tc_numarasi, kontrol_kodu)  # JSON'a ekleme
+            append_result_log(result["status"], result["details"])  # Log dosyasına ekleme
+            if result["status"] == "Başarılı":
+                st.success(result["details"])
+            else:
+                st.error(result["details"])
         else:
-            st.error("T.C. Kimlik Numarası veya Sonuç Belgesi Kontrol Kodu eksik.")
+            st.error("Geçerli bir TC Kimlik Numarası ve Kontrol Kodu girilmedi.")
