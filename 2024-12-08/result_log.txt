@@ -1,0 +1,161 @@
+2024-12-08 18:47:32.217157 - Durum: Başarısız
+Detaylar: Hata: name 'save_captcha_image' is not defined
+
+2024-12-08 18:52:38.931718 - Durum: Başarısız
+Detaylar: CAPTCHA çözülemedi
+
+2024-12-08 18:55:54.792602 - Durum: Başarısız
+Detaylar: Hata: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=131.0.6778.109)
+Stacktrace:
+	GetHandleVerifier [0x00007FF7B960E1F5+2972373]
+	(No symbol) [0x00007FF7B92A55F0]
+	(No symbol) [0x00007FF7B91457FA]
+	(No symbol) [0x00007FF7B911FA85]
+	(No symbol) [0x00007FF7B91C2B17]
+	(No symbol) [0x00007FF7B91DB1D1]
+	(No symbol) [0x00007FF7B91BB823]
+	(No symbol) [0x00007FF7B91875E8]
+	(No symbol) [0x00007FF7B9188751]
+	GetHandleVerifier [0x00007FF7B96347BD+3129501]
+	GetHandleVerifier [0x00007FF7B9684D00+3458528]
+	GetHandleVerifier [0x00007FF7B967B05D+3418429]
+	GetHandleVerifier [0x00007FF7B940687B+844123]
+	(No symbol) [0x00007FF7B92B0AFF]
+	(No symbol) [0x00007FF7B92AC6D4]
+	(No symbol) [0x00007FF7B92AC86D]
+	(No symbol) [0x00007FF7B929BD79]
+	BaseThreadInitThunk [0x00007FFD2928259D+29]
+	RtlUserThreadStart [0x00007FFD2B04AF38+40]
+
+
+2024-12-08 18:57:15.962665 - Durum: Başarısız
+Detaylar: Belge Sahte
+
+2024-12-08 19:43:04.836718 - Durum: Başarısız
+Detaylar: Belge Sahte
+
+2024-12-08 19:54:28.113982 - Durum: Başarılı
+Detaylar: Belge Gerçek
+
+
+2024-12-08 20:00:27.416514
+--------------------------------------------------
+PDF'den Alınan Bilgiler:
+TC Kimlik No: 25853025178
+Kontrol Kodu: R1JPXREA
+Doğru Sayısı: None
+Yanlış Sayısı: None
+
+Sonuç Sayfasından Alınan Bilgiler:
+TC Kimlik No: 25853025178
+Kontrol Kodu: R1JPXREA
+Doğru Sayısı: None
+Yanlış Sayısı: None
+
+Doğrulama Sonucu: Başarılı
+Detaylar: Belge Gerçek
+--------------------------------------------------
+
+
+2024-12-08 20:07:16.187509
+--------------------------------------------------
+PDF'den Alınan Bilgiler:
+TC Kimlik No: 25853025178
+Kontrol Kodu: R1JPXREA
+Genel Yetenek:
+  Doğru: None
+  Yanlış: 43
+Genel Kültür:
+  Doğru: None
+  Yanlış: 43
+
+Sonuç Sayfasından Alınan Bilgiler:
+TC Kimlik No: 25853025178
+Kontrol Kodu: R1JPXREA
+Genel Yetenek:
+  Doğru: None
+  Yanlış: None
+Genel Kültür:
+  Doğru: None
+  Yanlış: None
+
+Doğrulama Sonucu: Başarılı
+Detaylar: Belge Gerçek
+--------------------------------------------------
+
+
+2024-12-08 20:12:19.365722
+--------------------------------------------------
+PDF'den Alınan Bilgiler:
+TC Kimlik No: 44446453778
+Kontrol Kodu: BCUFC39X
+Genel Yetenek:
+  Doğru: None
+  Yanlış: 24
+Genel Kültür:
+  Doğru: None
+  Yanlış: 24
+KPSS Bilgileri:
+  Puan Türü: KPSSP93
+  KPSS Puanı: None
+  Başarı Sırası: 124091
+  Aday Sayısı: 889321
+
+Sonuç Sayfasından Alınan Bilgiler:
+TC Kimlik No: 44446453778
+Kontrol Kodu: BCUFC39X
+Genel Yetenek:
+  Doğru: None
+  Yanlış: 24
+Genel Kültür:
+  Doğru: None
+  Yanlış: 24
+KPSS Bilgileri:
+  Puan Türü: KPSSP93
+  KPSS Puanı: None
+  Başarı Sırası: 124091
+  Aday Sayısı: 889321
+
+Doğrulama Sonucu: Başarılı
+Detaylar: Belge Gerçek
+--------------------------------------------------
+
+
+2024-12-08 20:16:41.051462
+--------------------------------------------------
+PDF'den Alınan Bilgiler:
+TC Kimlik No: 25853025178
+Kontrol Kodu: R1JPXREA
+Genel Yetenek:
+  Doğru: 43
+  Yanlış: 5
+Genel Kültür:
+  Doğru: 5
+  Yanlış: 1
+KPSS Bilgileri:
+  Puan Türü: KPSSP93
+  KPSS Puanı: 74,21497
+  Başarı Sırası: 93
+  Aday Sayısı: 93
+
+Sonuç Sayfasından Alınan Bilgiler:
+TC Kimlik No: 25853025178
+Kontrol Kodu: R1JPXREA
+Genel Yetenek:
+  Doğru: 43
+  Yanlış: 5
+Genel Kültür:
+  Doğru: 5
+  Yanlış: 74
+KPSS Bilgileri:
+  Puan Türü: KPSSP93
+  KPSS Puanı: 124.052
+  Başarı Sırası: 93
+  Aday Sayısı: 93
+
+Doğrulama Sonucu: Başarılı
+Detaylar: Belge Gerçek
+--------------------------------------------------
+

@@ -81,3 +81,85 @@ Detaylar: Belge doğrulama başarılı
 2024-12-02 10:35:33.533407 - Durum: Başarılı
 Detaylar: Belge doğrulama başarılı
 
+2024-12-02 10:57:52.862671 - Durum: Başarısız
+Detaylar: Message: 
+Stacktrace:
+	GetHandleVerifier [0x00007FF63FB6E1F5+2972373]
+	(No symbol) [0x00007FF63F8055F0]
+	(No symbol) [0x00007FF63F6A57FA]
+	(No symbol) [0x00007FF63F6F5A3E]
+	(No symbol) [0x00007FF63F6F5D2C]
+	(No symbol) [0x00007FF63F73EAB7]
+	(No symbol) [0x00007FF63F71BABF]
+	(No symbol) [0x00007FF63F73B8CC]
+	(No symbol) [0x00007FF63F71B823]
+	(No symbol) [0x00007FF63F6E75E8]
+	(No symbol) [0x00007FF63F6E8751]
+	GetHandleVerifier [0x00007FF63FB947BD+3129501]
+	GetHandleVerifier [0x00007FF63FBE4D00+3458528]
+	GetHandleVerifier [0x00007FF63FBDB05D+3418429]
+	GetHandleVerifier [0x00007FF63F96687B+844123]
+	(No symbol) [0x00007FF63F810AFF]
+	(No symbol) [0x00007FF63F80C6D4]
+	(No symbol) [0x00007FF63F80C86D]
+	(No symbol) [0x00007FF63F7FBD79]
+	BaseThreadInitThunk [0x00007FFE95BF259D+29]
+	RtlUserThreadStart [0x00007FFE974AAF38+40]
+
+
+2024-12-02 11:25:25.662991 - Durum: Başarısız
+Detaylar: Doğrulama sırasında hata oluştu
+
+2024-12-02 11:25:57.934788 - Durum: Başarısız
+Detaylar: Doğrulama sırasında hata oluştu
+
+2024-12-02 11:27:49.161099 - Durum: Başarılı
+Detaylar: Belge doğrulama başarılı
+
+2024-12-02 11:56:20.437235 - Durum: Başarılı
+Detaylar: Belge doğrulama başarılı
+
+2024-12-02 12:02:20.069808 - Durum: Başarılı
+Detaylar: Belge doğrulama başarılı
+
+2024-12-02 12:02:22.740511 - Durum: Başarılı
+Detaylar: Belge doğrulama başarılı
+
+2024-12-02 12:23:16.775433 - Durum: Başarılı
+Detaylar: Belge doğrulama başarılı
+
+2024-12-02 12:23:56.094470 - Durum: Başarısız
+Detaylar: Doğrulama sırasında hata oluştu
+
+2024-12-02 12:24:35.107546 - Durum: Başarılı
+Detaylar: Belge doğrulama başarılı
+
+2024-12-02 12:35:28.386564 - Durum: Başarılı
+Detaylar: Belge doğrulama başarılı
+
+2024-12-02 12:39:36.925753 - Durum: Başarısız
+Detaylar: Message: 
+Stacktrace:
+	GetHandleVerifier [0x00007FF63FB6E1F5+2972373]
+	(No symbol) [0x00007FF63F8055F0]
+	(No symbol) [0x00007FF63F6A57FA]
+	(No symbol) [0x00007FF63F6F5A3E]
+	(No symbol) [0x00007FF63F6F5D2C]
+	(No symbol) [0x00007FF63F73EAB7]
+	(No symbol) [0x00007FF63F71BABF]
+	(No symbol) [0x00007FF63F73B8CC]
+	(No symbol) [0x00007FF63F71B823]
+	(No symbol) [0x00007FF63F6E75E8]
+	(No symbol) [0x00007FF63F6E8751]
+	GetHandleVerifier [0x00007FF63FB947BD+3129501]
+	GetHandleVerifier [0x00007FF63FBE4D00+3458528]
+	GetHandleVerifier [0x00007FF63FBDB05D+3418429]
+	GetHandleVerifier [0x00007FF63F96687B+844123]
+	(No symbol) [0x00007FF63F810AFF]
+	(No symbol) [0x00007FF63F80C6D4]
+	(No symbol) [0x00007FF63F80C86D]
+	(No symbol) [0x00007FF63F7FBD79]
+	BaseThreadInitThunk [0x00007FFE95BF259D+29]
+	RtlUserThreadStart [0x00007FFE974AAF38+40]
+
+

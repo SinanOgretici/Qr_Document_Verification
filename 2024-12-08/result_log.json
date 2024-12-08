@@ -1,0 +1,297 @@
+[
+    {
+        "timestamp": "2024-12-08T20:28:54.116019",
+        "status": "Başarısız",
+        "details": "Belge Sahte (TC Kimlik No uyuşmuyor)",
+        "pdf_data": {
+            "tc_kimlik": "25853025178",
+            "kontrol_kodu": "R1JPXREA",
+            "test_sonuclari": {
+                "genel_yetenek": {
+                    "dogru": "43",
+                    "yanlis": "5"
+                },
+                "genel_kultur": {
+                    "dogru": "5",
+                    "yanlis": "1"
+                }
+            },
+            "kpss_bilgileri": {
+                "puan_turu": "KPSSP93",
+                "kpss_puani": "74,21497",
+                "basari_sirasi": "93",
+                "aday_sayisi": "93"
+            }
+        },
+        "screen_data": {
+            "tc_kimlik": null,
+            "kontrol_kodu": "R1JPXREA",
+            "test_sonuclari": {
+                "genel_yetenek": {
+                    "dogru": "43",
+                    "yanlis": "5"
+                },
+                "genel_kultur": {
+                    "dogru": "5",
+                    "yanlis": "74"
+                }
+            },
+            "kpss_bilgileri": {
+                "puan_turu": "KPSSP93",
+                "kpss_puani": "124.052",
+                "basari_sirasi": "93",
+                "aday_sayisi": "93"
+            }
+        }
+    },
+    {
+        "timestamp": "2024-12-08T20:34:39.164632",
+        "status": "Başarısız",
+        "details": "Belge Sahte (Kontrol Kodu uyuşmuyor)",
+        "pdf_data": {
+            "tc_kimlik": "44446453778",
+            "kontrol_kodu": "BCUFC39X",
+            "test_sonuclari": {
+                "genel_yetenek": {
+                    "dogru": "9",
+                    "yanlis": "1"
+                },
+                "genel_kultur": {
+                    "dogru": "1",
+                    "yanlis": "8893"
+                }
+            },
+            "kpss_bilgileri": {
+                "puan_turu": "KPSSP93",
+                "kpss_puani": null,
+                "basari_sirasi": "124091",
+                "aday_sayisi": "889321"
+            }
+        },
+        "screen_data": {
+            "tc_kimlik": "44446453778",
+            "kontrol_kodu": null,
+            "test_sonuclari": {
+                "genel_yetenek": {
+                    "dogru": "9",
+                    "yanlis": "1"
+                },
+                "genel_kultur": {
+                    "dogru": "1",
+                    "yanlis": "8893"
+                }
+            },
+            "kpss_bilgileri": {
+                "puan_turu": "KPSSP93",
+                "kpss_puani": null,
+                "basari_sirasi": "124091",
+                "aday_sayisi": "889321"
+            }
+        }
+    },
+    {
+        "timestamp": "2024-12-08T20:41:08.634180",
+        "verification_status": "Başarılı",
+        "verification_details": "Belge Gerçek",
+        "pdf_data": {
+            "tc_kimlik": "25853025178",
+            "kontrol_kodu": "R1JPXREA",
+            "genel_yetenek": {
+                "dogru": "43",
+                "yanlis": "5"
+            },
+            "genel_kultur": {
+                "dogru": "5",
+                "yanlis": "1"
+            },
+            "kpss_bilgileri": {
+                "puan_turu": "KPSSP93",
+                "kpss_puani": "74,21497",
+                "basari_sirasi": "93",
+                "aday_sayisi": "93"
+            }
+        },
+        "screen_data": {
+            "tc_kimlik": "25853025178",
+            "kontrol_kodu": "R1JPXREA",
+            "genel_yetenek": {
+                "dogru": "43",
+                "yanlis": "5"
+            },
+            "genel_kultur": {
+                "dogru": "5",
+                "yanlis": "74"
+            },
+            "kpss_bilgileri": {
+                "puan_turu": "KPSSP93",
+                "kpss_puani": "124.052",
+                "basari_sirasi": "93",
+                "aday_sayisi": "93"
+            }
+        }
+    },
+    {
+        "timestamp": "2024-12-08T20:49:38.553158",
+        "status": "Başarılı",
+        "details": "Belge Gerçek",
+        "pdf_data": {
+            "tc_kimlik": "25853025178",
+            "kontrol_kodu": "R1JPXREA",
+            "genel_yetenek": {
+                "dogru": "43",
+                "yanlis": "5"
+            },
+            "genel_kultur": {
+                "dogru": "5",
+                "yanlis": "1"
+            },
+            "kpss_bilgileri": {
+                "puan_turu": "KPSSP93",
+                "kpss_puani": "74,21497",
+                "basari_sirasi": "93",
+                "aday_sayisi": "93"
+            }
+        },
+        "screen_data": {
+            "tc_kimlik": "25853025178",
+            "kontrol_kodu": "R1JPXREA",
+            "genel_yetenek": {
+                "dogru": "43",
+                "yanlis": "5"
+            },
+            "genel_kultur": {
+                "dogru": "5",
+                "yanlis": "74"
+            },
+            "kpss_bilgileri": {
+                "puan_turu": "KPSSP93",
+                "kpss_puani": "124.052",
+                "basari_sirasi": "93",
+                "aday_sayisi": "93"
+            }
+        }
+    },
+    {
+        "timestamp": "2024-12-08T20:51:49.799459",
+        "status": "Başarısız",
+        "details": "Belge Sahte (Kontrol Kodu uyuşmuyor)",
+        "pdf_data": {
+            "tc_kimlik": "44446453778",
+            "kontrol_kodu": "BCUFC39X",
+            "genel_yetenek": {
+                "dogru": "9",
+                "yanlis": "1"
+            },
+            "genel_kultur": {
+                "dogru": "1",
+                "yanlis": "8893"
+            },
+            "kpss_bilgileri": {
+                "puan_turu": "KPSSP93",
+                "kpss_puani": null,
+                "basari_sirasi": "124091",
+                "aday_sayisi": "889321"
+            }
+        },
+        "screen_data": {
+            "tc_kimlik": "44446453778",
+            "kontrol_kodu": null,
+            "genel_yetenek": {
+                "dogru": "9",
+                "yanlis": "1"
+            },
+            "genel_kultur": {
+                "dogru": "1",
+                "yanlis": "8893"
+            },
+            "kpss_bilgileri": {
+                "puan_turu": "KPSSP93",
+                "kpss_puani": null,
+                "basari_sirasi": "124091",
+                "aday_sayisi": "889321"
+            }
+        }
+    },
+    {
+        "timestamp": "2024-12-08T21:00:34.153307",
+        "status": "Başarılı",
+        "details": "Belge Gerçek",
+        "pdf_data": {
+            "tc_kimlik": "25853025178",
+            "kontrol_kodu": "R1JPXREA",
+            "genel_yetenek": {
+                "dogru": "43",
+                "yanlis": "5"
+            },
+            "genel_kultur": {
+                "dogru": "5",
+                "yanlis": "1"
+            },
+            "kpss_bilgileri": {
+                "puan_turu": "KPSSP93",
+                "kpss_puani": "74,21497",
+                "basari_sirasi": "93",
+                "aday_sayisi": "93"
+            }
+        },
+        "screen_data": {
+            "tc_kimlik": "25853025178",
+            "kontrol_kodu": "R1JPXREA",
+            "genel_yetenek": {
+                "dogru": "43",
+                "yanlis": "5"
+            },
+            "genel_kultur": {
+                "dogru": "5",
+                "yanlis": "74"
+            },
+            "kpss_bilgileri": {
+                "puan_turu": "KPSSP93",
+                "kpss_puani": "124.052",
+                "basari_sirasi": "93",
+                "aday_sayisi": "93"
+            }
+        }
+    },
+    {
+        "timestamp": "2024-12-08T21:01:23.641554",
+        "status": "Başarılı",
+        "details": "Belge Gerçek",
+        "pdf_data": {
+            "tc_kimlik": "44446453778",
+            "kontrol_kodu": "BCUFC39X",
+            "genel_yetenek": {
+                "dogru": "9",
+                "yanlis": "1"
+            },
+            "genel_kultur": {
+                "dogru": "1",
+                "yanlis": "8893"
+            },
+            "kpss_bilgileri": {
+                "puan_turu": "KPSSP93",
+                "kpss_puani": null,
+                "basari_sirasi": "124091",
+                "aday_sayisi": "889321"
+            }
+        },
+        "screen_data": {
+            "tc_kimlik": "44446453778",
+            "kontrol_kodu": "BCUFC39X",
+            "genel_yetenek": {
+                "dogru": "9",
+                "yanlis": "1"
+            },
+            "genel_kultur": {
+                "dogru": "1",
+                "yanlis": "8893"
+            },
+            "kpss_bilgileri": {
+                "puan_turu": "KPSSP93",
+                "kpss_puani": null,
+                "basari_sirasi": "124091",
+                "aday_sayisi": "889321"
+            }
+        }
+    }
+]
